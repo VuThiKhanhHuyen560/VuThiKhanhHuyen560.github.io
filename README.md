@@ -1,2 +1,2 @@
 # VuThiKhanhHuyen560.github.io
-haha
+Learning GitHub is funnnnn.
