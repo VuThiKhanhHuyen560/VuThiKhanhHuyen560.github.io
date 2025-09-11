@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Formatting</title>
+    <style>
+        body {
+            border: 5px solid brown;
+            padding: 20px;
+        }
+        h1 {
+            color: cyan;
+            font-family: sans-serif;
+            text-align: center;
+        }
+        .chemical, .mathematic, .technical {
+            font-weight: bold;
+        }
+        .chemical {
+            color: blue;
+        }
+        .mathematic {
+            color: blue;
+        }
+        .technical {
+            color: blue;
+        }
+        .text-chemical {
+            color: purple;
+        }
+        .text-mathematic {
+            color: purple;
+        }
+        .text-technical {
+            color: red;
+        }
+        .code-block {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-family: monospace;
+            white-space: pre;
+            color: black;
+        }
+        .code-keyword {
+            color: purple;
+        }
+        .code-string {
+            color: red;
+        }
+        .code-comment {
+            color: green;
+        }
+        .code-conditional {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Text Formatting</h1>
+    
+    <p><span class="chemical">Chemical:</span> <span class="text-chemical">Axít Sunfuric:</span> <span class="text-chemical">H<sub>2</sub>SO<sub>4</sub></span></p>
+    <p><span class="mathematic">Mathematic:</span> <span class="text-mathematic">Equation:</span> <span class="text-mathematic">ax<sup>2</sup>+bx+c=0</span></p>
+    <p><span class="technical">Technical:</span> <span class="text-technical">Print result:</span></p>
+
+    <div class="code-block">
+<span class="code-keyword">int</span> num, res;
+<span class="code-keyword">printf</span>("<span class="code-string">---------TEST THE NUMBER IS EVEN OR ODD------------</span>");
+<span class="code-keyword">printf</span>("<span class="code-string">\nEnte a number :</span>");
+<span class="code-keyword">scanf</span>("<span class="code-string">%d</span>",&num);
+res = num % 2;
+<span class="code-conditional">if</span> (res == 0)
+    <span class="code-keyword">printf</span>("<span class="code-string">The number is Even</span>");
+<span class="code-conditional">else</span>
+    <span class="code-keyword">printf</span>("<span class="code-string">The number is Odd</span>");
+    </div>
+
+</body>
+</html>
