@@ -1,79 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Text Formatting</title>
-    <style>
-        body {
-            border: 5px solid brown;
-            padding: 20px;
-        }
-        h1 {
-            color: cyan;
-            font-family: sans-serif;
-            text-align: center;
-        }
-        .chemical, .mathematic, .technical {
-            font-weight: bold;
-        }
-        .chemical {
-            color: blue;
-        }
-        .mathematic {
-            color: blue;
-        }
-        .technical {
-            color: blue;
-        }
-        .text-chemical {
-            color: purple;
-        }
-        .text-mathematic {
-            color: purple;
-        }
-        .text-technical {
-            color: red;
-        }
-        .code-block {
-            background-color: #f0f0f0;
-            border: 1px solid #ccc;
-            padding: 10px;
-            font-family: monospace;
-            white-space: pre;
-            color: black;
-        }
-        .code-keyword {
-            color: purple;
-        }
-        .code-string {
-            color: red;
-        }
-        .code-comment {
-            color: green;
-        }
-        .code-conditional {
-            color: red;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Text Formatting</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      font-family: "Times New Roman", Times, serif;
+    }
+    h1 {
+      text-align: center;
+      color: #00FFFF; /* Cyan */
+      font-size: 48px;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    .line {
+      font-size: 20px;
+      margin: 8px 0;
+    }
+    .blue-link {
+      color: #0000FF;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+    .italic {
+      font-style: italic;
+      color: #000000;
+    }
+    .magenta {
+      color: #FF00FF;
+    }
+    .orange {
+      color: #FF751A;
+    }
+    pre {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 15px;
+      line-height: 1.2;
+      margin-top: 10px;
+      white-space: pre;
+    }
+    .kw, .func, .str {
+      color: #FF2525; /* Red for keywords, functions, strings */
+    }
+    .var {
+      color: #3B3B3B; /* Dark gray for variables */
+    }
+    .op {
+      color: #000000; /* Black for operators and symbols */
+    }
+  </style>
 </head>
 <body>
 
-    <h1>Text Formatting</h1>
-    
-    <p><span class="chemical">Chemical:</span> <span class="text-chemical">Axít Sunfuric:</span> <span class="text-chemical">H<sub>2</sub>SO<sub>4</sub></span></p>
-    <p><span class="mathematic">Mathematic:</span> <span class="text-mathematic">Equation:</span> <span class="text-mathematic">ax<sup>2</sup>+bx+c=0</span></p>
-    <p><span class="technical">Technical:</span> <span class="text-technical">Print result:</span></p>
+  <h1>Text Formatting</h1>
 
-    <div class="code-block">
-<span class="code-keyword">int</span> num, res;
-<span class="code-keyword">printf</span>("<span class="code-string">---------TEST THE NUMBER IS EVEN OR ODD------------</span>");
-<span class="code-keyword">printf</span>("<span class="code-string">\nEnte a number :</span>");
-<span class="code-keyword">scanf</span>("<span class="code-string">%d</span>",&num);
-res = num % 2;
-<span class="code-conditional">if</span> (res == 0)
-    <span class="code-keyword">printf</span>("<span class="code-string">The number is Even</span>");
-<span class="code-conditional">else</span>
-    <span class="code-keyword">printf</span>("<span class="code-string">The number is Odd</span>");
-    </div>
+  <div class="line">
+    <span class="blue-link">Chemical:</span>
+    <span class="italic"> Axit Sunfuric:</span>
+    <span class="magenta"> H<sub>2</sub>SO<sub>4</sub></span>
+  </div>
+
+  <div class="line">
+    <span class="blue-link">Mathematic:</span>
+    <span class="italic"> Equation:</span>
+    <span class="magenta"> ax<sup>2</sup> + bx + c = 0</span>
+  </div>
+
+  <div class="line">
+    <span class="blue-link">Technical:</span>
+    <span class="orange"> Print result:</span>
+  </div>
+
+  <pre>
+<span class="kw">int</span> <span class="var">num</span>, <span class="var">res</span>;
+<span class="func">printf</span>(<span class="str">"------TEST THE NUMBER IS EVEN OR ODD--------"</span>);
+<span class="func">printf</span>(<span class="str">"\nEnter a number :"</span>);
+<span class="func">scanf</span>(<span class="str">"%d"</span>,&amp;<span class="var">num</span>);
+<span class="var">res</span> <span class="op">=</span> <span class="var">num</span> <span class="op">%</span> <span class="kw">2</span>;
+<span class="kw">if</span> (<span class="var">res</span> <span class="op">==</span> <span class="kw">0</span>)
+    <span class="func">printf</span>(<span class="str">"The number is Even"</span>);
+<span class="kw">else</span>
+    <span class="func">printf</span>(<span class="str">"The number is Odd"</span>);
+  </pre>
 
 </body>
 </html>
