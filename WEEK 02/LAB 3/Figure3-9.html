@@ -42,14 +42,13 @@
       margin-top: 10px;
       white-space: pre;
     }
-    .kw, .func, .str {
-      color: #FF2525; /* Red for keywords, functions, strings */
+    /* Các từ có màu đỏ */
+    .red {
+      color: #FF0000;
     }
-    .var {
-      color: #3B3B3B; /* Dark gray for variables */
-    }
-    .op {
-      color: #000000; /* Black for operators and symbols */
+    /* Các từ có màu đen */
+    .black {
+      color: #000000;
     }
   </style>
 </head>
@@ -75,15 +74,15 @@
   </div>
 
   <pre>
-<span class="kw">int</span> <span class="var">num</span>, <span class="var">res</span>;
-<span class="func">printf</span>(<span class="str">"------TEST THE NUMBER IS EVEN OR ODD--------"</span>);
-<span class="func">printf</span>(<span class="str">"\nEnter a number :"</span>);
-<span class="func">scanf</span>(<span class="str">"%d"</span>,&amp;<span class="var">num</span>);
-<span class="var">res</span> <span class="op">=</span> <span class="var">num</span> <span class="op">%</span> <span class="kw">2</span>;
-<span class="kw">if</span> (<span class="var">res</span> <span class="op">==</span> <span class="kw">0</span>)
-    <span class="func">printf</span>(<span class="str">"The number is Even"</span>);
-<span class="kw">else</span>
-    <span class="func">printf</span>(<span class="str">"The number is Odd"</span>);
+<span class="red">int</span> <span class="black">num</span>, <span class="black">res</span>;
+<span class="black">printf</span>(<span class="red">"------TEST THE NUMBER IS EVEN OR ODD--------"</span>)<span class="black">;</span>
+<span class="black">printf</span>(<span class="black">"\nEnter a number :"</span>)<span class="black">;</span>
+<span class="black">scanf</span>(<span class="red">"%d"</span>,<span class="black">&</span><span class="black">num</span>)<span class="black">;</span>
+<span class="black">res</span> <span class="black">=</span> <span class="black">num</span> <span class="black">%</span> <span class="black">2</span><span class="black">;</span>
+<span class="red">if</span> <span class="black">(</span><span class="black">res</span> <span class="black">==</span> <span class="black">0</span><span class="black">)</span>
+    <span class="black">printf</span>(<span class="black">"The number is Even"</span>)<span class="black">;</span>
+<span class="red">else</span>
+    <span class="black">printf</span>(<span class="black">"The number is Odd"</span>)<span class="black">;</span>
   </pre>
 
 </body>
