@@ -1,0 +1,125 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 0; 
+    background-color: #f4f4f4; 
+}
+
+/* --- NAVIGATION BAR --- */
+nav#cv-nav {
+    background-color: #333; /* Màu nền thanh menu */
+    padding: 10px 0;
+    position: sticky; /* Thanh menu cố định khi cuộn */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav#cv-nav ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+nav#cv-nav li {
+    display: inline-block;
+    padding: 0 15px; 
+}
+
+nav#cv-nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav#cv-nav a:hover {
+    background-color: #4facfe; 
+    color: white;
+}
+
+
+header {
+    text-align: center;
+    padding: 30px 20px;
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    margin-bottom: 20px;
+    border-radius: 0 0 10px 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #f0f8ff;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid white; 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+/* NỘI DUNG CHÍNH */
+h2 {
+    color: #333;
+    border-bottom: 2px solid #4facfe;
+    padding-bottom: 5px;
+    margin-top: 10px; 
+    text-decoration: none;
+}
+
+section {
+    padding: 20px; 
+    background-color: white; 
+    margin: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); 
+}
+
+hr {
+    display: none; 
+}
+
+summary {
+    color: #007bff;
+    cursor: pointer;
+    padding: 5px 0;
+    text-decoration: underline;
+}
+
+details {
+    background-color: #eef5ff;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+ul, ol {
+    padding-left: 20px;
+}
+
+video {
+    display: block;
+    margin: 20px auto;
+    border-radius: 5px;
+}

@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.navbar ul li {
+    text-align: center;
+}
+
+.navbar ul li a {
+    display: block;
+    color: white;
+    padding: 14px 20px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.navbar ul li a:hover {
+    background-color: #575757;
+}
+
+h2 {
+    color:rgb(60, 176, 180);
+}
+.Skill{
+    border-bottom:rgb(60, 176, 180) 2px solid;
+    width :fit-content;
+}
+
+.content {
+    margin-bottom: 10px; /* Adjust the value as needed */
+}
+
+h3 {
+    margin-top: 30px; /* Adjust the value as needed */
+    margin-bottom: 1.2px; /* Adjust the value as needed */
+}
+
