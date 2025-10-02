@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CV Của Vũ Thị Khánh Huyền</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #f4f4f4; 
+        }
+
+        /* CHỈNH SỬA: GRADIENT VÀ KHUNG TÊN */
+        header {
+            text-align: center;
+            padding: 30px 20px; /* Tăng padding để đẹp hơn */
+            background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%); /* Gradient xanh dương - xanh ngọc */
+            color: white;
+            margin-bottom: 20px;
+            border-radius: 10px; /* Bo góc header */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            color: white;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            color: #f0f8ff;
+        }
+        
+        img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            /* Đảm bảo hình ảnh tròn hoàn hảo */
+            border-radius: 50%;
+            /* Khung ảnh (border) */
+            border: 5px solid white; 
+            /* Tạo bóng nhẹ chuyên nghiệp */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s; /* Hiệu ứng nhẹ khi hover */
+        }
+        
+        img:hover {
+            transform: scale(1.05);
+        }
+
+
+        h2 {
+            color: #333; /* Màu tiêu đề các mục chính */
+            border-bottom: 2px solid #4facfe; /* Đường gạch chân theo màu gradient */
+            padding-bottom: 5px;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 15px;
+            background-color: white; /* Nền trắng cho các phần nội dung */
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background-color: #ccc;
+            margin: 20px 0;
+        }
+        
+        summary {
+            color: #007bff;
+            cursor: pointer;
+            padding: 5px 0;
+            text-decoration: underline;
+        }
+        
+        details {
+            background-color: #eef5ff; /* Màu nền nhẹ nhàng hơn cho details */
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 3px;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        video {
+            display: block;
+            margin: 20px auto;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="apple.png" alt="Hình ảnh của mình">
+        <h1>Vũ Thị Khánh Huyền</h1>
+        <p>Hà Nội | 0334133085 | 23070560@vnu.edu.vn</p>
+    </header>
+
+    <hr>
+
+    <section>
+        <h2>Mục tiêu nghề nghiệp</h2>
+        <p>Tìm kiếm một vị trí thực tập trong lĩnh vực lập trình web để áp dụng kiến thức đã học, phát triển kỹ năng thực tế và đóng góp vào sự phát triển của công ty.</p>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Học vấn</h2>
+        <details>
+            <summary><b>Trường Quốc Tế - Đại học Quốc Gia Hà Nội</b></summary>
+            <ul>
+                <li>Ngành: Hệ thống thông tin quản lí</li>
+                <li>Sinh viên năm 3</li>
+            </ul>
+        </details>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Kỹ năng</h2>
+
+        <details > <summary><b>Kỹ năng chuyên môn</b></summary>
+            <ol>
+                <li>Lập trình: HTML, CSS, C cơ bản, Python.</li>
+                <li>Hệ thống: Hiểu biết cơ bản về cơ sở dữ liệu và mạng máy tính.</li>
+            </ol>
+        </details>
+
+        <details>
+            <summary><b>Kỹ năng mềm</b></summary>
+            <ul>
+                <li>Giao tiếp</li>
+                <li>Làm việc nhóm</li>
+                <li>Giải quyết vấn đề</li>
+            </ul>
+        </details>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Sở thích</h2>
+        <p>Đọc sách, nghe nhạc, xem phim, tìm hiểu công nghệ mới.</p>
+    </section>
+    <video
+    src="Video in CV.mp4"
+    controls
+    width="400"
+    >  
+</video>
+
+</body>
+</html>
