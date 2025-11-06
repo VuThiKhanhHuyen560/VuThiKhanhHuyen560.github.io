@@ -5,19 +5,14 @@
 <script language="javascript">
     var txta = prompt("Enter any integer");
 
-    // Dùng .trim() để xử lý khoảng trắng, và gán kết quả đã làm sạch vào một biến mới
     var valA = txta != null ? txta.trim() : null;
 
-    // 1. Kiểm tra đầu vào: null, rỗng, hoặc không phải là số
-    if (valA == null || valA == "" || isNaN(valA)) { // Sửa lỗi cú pháp: | | -> ||
+    if (valA == null || valA == "" || isNaN(valA)) { 
         document.write("<font color='red'>You must enter a number</font>");
     
-    // 2. Kiểm tra Số chẵn: Sử dụng toán tử % (chia lấy dư)
-    } else if (parseFloat(valA) % 2 == 0) { // Sửa lỗi cú pháp: $ -> %
-        // Dùng parseFloat để đảm bảo tính toán chính xác, ngay cả khi nhập số thập phân
+    } else if (parseFloat(valA) % 2 == 0) { 
         document.write("<font color='green'><b>" + valA + " is an even number</b></font>");
     
-    // 3. Số lẻ (Trường hợp còn lại)
     } else {
         document.write("<font color='blue'><i>" + valA + " is an odd number</i></font>");
     }
