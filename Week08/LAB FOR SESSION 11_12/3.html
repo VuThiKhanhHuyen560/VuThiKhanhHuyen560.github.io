@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Dates in month</title>
+<script language="javascript">
+// Hàm kiểm tra năm nhuận
+function isLeapYear (n) {
+    // Chuyển giá trị thành số nguyên để tính toán Modulo chính xác
+    var yearNum = parseInt(n); 
+    // Logic năm nhuận: (chia hết cho 4 VÀ không chia hết cho 100) HOẶC chia hết cho 400
+    return (yearNum % 4 == 0 && yearNum % 100 != 0) || yearNum % 400 == 0;
+} 
+
+// Hàm cập nhật số ngày trong tháng
+function update () {
+    // 1. Lấy tham chiếu đến các trường nhập liệu
+    var year = document.f.year;
+    var month = document.f.month;
+    var date = document.f.date;
+    
+    // Lấy giá trị năm đã được cắt khoảng trắng và chuyển sang số nguyên
+    var inputYear = parseInt(year.value.trim()); 
+
+    // 2. Kiểm tra lỗi đầu vào
+    // Sửa lỗi: | | thành ||
+    // Thêm .trim() để xử lý khoảng trắng
+    if (year.value.trim() == "" || isNaN(inputYear) || inputYear < 0) {
+        date.value = "Year must be a positive number";
+        year.focus();
+    } 
+    // 3. Sửa lỗi: Thêm dấu đóng mở cho khối else
+    else { 
+        switch (month.value) {
+            case "1":
+            case "3":
+            case "5":
+            case "7":
+            case "8":
+            case "10":
+            case "12":
+                date.value = 31;
+                break;
+            case "4":
+            case "6":
+            case "9":
+            case "11":
+                date.value = 30;
+                break;
+            case "2":
+                // 4. Gọi hàm isLeapYear với giá trị năm đã là số (inputYear)
+                date.value = isLeapYear(inputYear) ? 29 : 28;
+                break;
+        }
+    }
+}
+</script>
+</head>
+<body onload="update () "> 
+<form name="f">
+<table border="0" align="center">
+<tr><td colspan="2" align="center">
+<h2>DATES IN MONTH</h2></td></tr>
+
+<tr><td align="right">Year: </td>
+<td><input name="year" value="2012"
+onchange="update () " /></td></tr> <tr><td align="right">Month: </td>
+<td><select name="month" onchange="update () "> 
+<option value="1">01</option>
+<option value="2">02</option>
+<option value="3">03</option>
+<option value="4">04</option>
+<option value="5">05</option>
+<option value="6">06</option>
+<option value="7">07</option>
+<option value="8">08</option>
+<option value="9">09</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+</select>
+</td></tr>
+<tr><td align="right">Date: </td>
+<td><input name="date" readonly="readonly" /></td>
+</tr>
+</table>
+</form>
+</body>
+</html>

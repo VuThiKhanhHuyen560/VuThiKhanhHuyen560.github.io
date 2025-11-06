@@ -1,0 +1,41 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ex02</title>
+<script language="javascript">
+    // Lấy input, lưu ý: các hàm prompt() sẽ chạy trước khi nội dung <body> được hiển thị
+    var txta = prompt("Enter number A");
+    var txtb = prompt("Enter number B");
+
+    // Dùng .trim() để loại bỏ khoảng trắng dư thừa ở đầu và cuối chuỗi nhập vào
+    var valA = txta != null ? txta.trim() : null;
+    var valB = txtb != null ? txtb.trim() : null;
+
+    // 1. Kiểm tra Số A
+    // Lỗi ở đây đã được sửa: | | thành ||
+    if (valA == null || valA == "" || isNaN(valA)) {
+        alert("Number A is formatted incorrect");
+    
+    // 2. Kiểm tra Số B
+    // Lỗi ở đây đã được sửa: | | thành ||
+    } else if (valB == null || valB == "" || isNaN(valB)) {
+        alert("Number B is formatted incorrect");
+    
+    // 3. Thực hiện phép tính và hiển thị kết quả
+    } else {
+        // Sử dụng parseFloat để chuyển đổi chuỗi sang số, có thể xử lý số thập phân
+        var numA = parseFloat(valA);
+        var numB = parseFloat(valB);
+        
+        var result = numA + numB;
+        
+        // Hiển thị kết quả. Dùng numA và numB để đảm bảo tính toán chính xác
+        alert("Result:\n" +
+              numA + " + " + numB + " = " + result);
+    }
+</script>
+</head>
+<body>
+    <p>Refresh trang để chạy lại hộp thoại Prompt.</p>
+</body>
+</html>
