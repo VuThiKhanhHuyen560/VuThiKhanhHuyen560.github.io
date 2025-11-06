@@ -1,0 +1,70 @@
+/* RESET CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* Background and layout */
+body {
+    background-color: #f6f8fc;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Title */
+.title {
+    text-align: center;
+    margin-bottom: 32px;
+    font-size: 32px;
+    color: #1f2937;
+}
+
+/* GRID layout */
+.product-section {
+    width: 90%;
+    max-width: 1100px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* CARD style */
+.product-card {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow:  6px -12px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #2563eb;
+}
+
+.product-card:hover {
+    transform: translateY(-20px);
+    box-shadow: 10px -8px 180px rgba(250, 111, 41, 0.25); /*x là cot doc, phai la duong, trai la am, y la cot ngang, duoi la duong, tren la am
+}
+
+/* Inside card */
+.product-card h2 { /*product name*/
+    margin-bottom: 12px;
+    font-size: 35px;
+    color: #111827;
+}
+
+.price {
+    color: #2563eb;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.desc {
+    color: #4b5563;
+    font-size: 15px;
+    line-height: 1.4;
+}

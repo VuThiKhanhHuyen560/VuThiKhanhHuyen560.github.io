@@ -1,0 +1,55 @@
+/* Reset margin + padding mặc định của trình duyệt */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navigation Container */
+.navbar {
+    background-color: #91bee2; /* màu xanh navy */
+    padding: 20px;
+    box-shadow: 20px 20px 100px blue; /* đổ bóng tối */;
+    border-radius: 50px;
+}
+
+/* Navigation list */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* căn giữa menu */
+    gap: 50px; /* khoảng cách giữa các items */
+    align-items: center;
+}
+
+/* Style từng item */
+.navbar ul li {
+    position: relative;
+}
+
+/* Thêm dấu chấm (•) giữa các item */
+.navbar ul li:not(:last-child)::after {
+    content: "•";
+    color: #e3e3e3;
+    margin-left: 50px;
+    font-size: 28px;
+    font-weight: bold;
+
+
+}
+
+/* Style cho link */
+.navbar ul li a {
+    text-decoration: none;
+    color: rgb(185, 75, 134);
+    font-size: 18px;
+    padding: 0px 10px;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+/* Hover */
+.navbar ul li a:hover {
+    background-color: #93c5fd;
+    color: #1e3a8a;
+}

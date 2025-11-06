@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CV Của Vũ Thị Khánh Huyền</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* CSS đơn giản cho thông báo */
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: none; /* Ban đầu ẩn */
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="cv-nav">
+        <ul>
+            <li><a href="#muctieu">Mục tiêu</a></li>
+            <li><a href="#hocvan">Học vấn</a></li>
+            <li><a href="#kynang">Kỹ năng</a></li>
+            <li><a href="#sothich">Sở thích</a></li>
+            <li><a href="#video">Video</a></li>
+            <li><a href="#lienhe">Liên hệ</a></li>
+        </ul>
+    </nav>
+    <header>
+        <img src="apple.png" alt="Hình ảnh của mình">
+        <h1>Vũ Thị Khánh Huyền</h1>
+        <p>Hà Nội | 0334133085 | 23070560@vnu.edu.vn</p>
+    </header>
+
+    <section id="muctieu">
+        <h2>Mục tiêu nghề nghiệp</h2>
+        <p>Tìm kiếm một vị trí thực tập trong lĩnh vực lập trình web để áp dụng kiến thức đã học, phát triển kỹ năng thực tế và đóng góp vào sự phát triển của công ty.</p>
+    </section>
+
+    <section id="hocvan">
+        <h2>Học vấn</h2>
+        <details>
+            <summary><b>Trường Quốc Tế - Đại học Quốc Gia Hà Nội</b></summary>
+            <ul>
+                <li>Ngành: Hệ thống thông tin quản lí</li>
+                <li>Sinh viên năm 3</li>
+            </ul>
+        </details>
+    </section>
+
+    <section id="kynang">
+        <h2>Kỹ năng</h2>
+
+        <details > <summary><b>Kỹ năng chuyên môn</b></summary>
+            <ol>
+                <li>Lập trình: HTML, CSS, C cơ bản, Python.</li>
+                <li>Hệ thống: Hiểu biết cơ bản về cơ sở dữ liệu và mạng máy tính.</li>
+            </ol>
+        </details>
+
+        <details>
+            <summary><b>Kỹ năng mềm</b></summary>
+            <ul>
+                <li>Giao tiếp</li>
+                <li>Làm việc nhóm</li>
+                <li>Giải quyết vấn đề</li>
+            </ul>
+        </details>
+    </section>
+
+    <section id="sothich">
+        <h2>Sở thích</h2>
+        <p>Đọc sách, nghe nhạc, xem phim, tìm hiểu công nghệ mới.</p>
+    </section>
+    
+    <section id="video" style="text-align: center;">
+        <h2>Video Giới Thiệu</h2>
+        <video
+        src="Video in CV.mp4"
+        controls
+        width="400"
+        >  
+        </video>
+    </section>
+
+    <section id="lienhe">
+        <h2>📩 Liên Hệ Với Tôi</h2>
+        
+        <div id="success-alert" class="success-message">
+            ✅ Gửi thành công! Cảm ơn bạn đã liên hệ.
+        </div>
+        
+        <form id="contactForm" action="submit_form.php" method="POST">
+            
+            <p>
+                <label for="ho_ten">Họ tên:</label><br>
+                <input type="text" id="ho_ten" name="ho_ten" required />
+            </p>
+
+            <p>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required />
+            </p>
+
+            <p>
+                <label for="tieu_de">Tiêu đề:</label><br>
+                <input type="text" id="tieu_de" name="tieu_de" />
+            </p>
+
+            <p>
+                <label for="noi_dung">Nội dung tin nhắn:</label><br>
+                <textarea id="noi_dung" name="noi_dung" rows="5" cols="50" required>Nhập tin nhắn của bạn ở đây...</textarea>
+            </p>
+
+            <p>
+                <input type="submit" name="submit" value="Gửi Tin Nhắn" />
+            </p>
+
+        </form>
+    </section>
+    
+</body>
+</html>

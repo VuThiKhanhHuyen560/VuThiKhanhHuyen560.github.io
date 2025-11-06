@@ -1,0 +1,88 @@
+/* Thiết lập chung cho danh sách */
+.fruit-list {
+    /* 1. Xóa bỏ kiểu đầu dòng mặc định của trình duyệt */
+    list-style-type: none; 
+    padding-left: 0; /* Đảm bảo danh sách bắt đầu sát lề */
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+/* Định kiểu cho từng mục trong danh sách */
+.fruit-list li:nth-child(odd) {
+    padding-left: 20px; /* Tạo khoảng trống để chèn biểu tượng */
+    position: flex; /* Quan trọng: Thiết lập bối cảnh cho ::before */
+    line-height: 1.8; /* Tăng khoảng cách dòng cho dễ nhìn */
+    font-size: 18px;
+    margin-right: 30px;
+}
+.fruit-list li:nth-child(even) {
+    padding-left: 20px; /* Tạo khoảng trống để chèn biểu tượng */
+    position: relative; /* Quan trọng: Thiết lập bối cảnh cho ::before */
+    line-height: 3; /* Tăng khoảng cách dòng cho dễ nhìn */
+    font-size: 20px;
+    margin-right: 30px;
+}
+
+/* Tạo và định kiểu biểu tượng đầu dòng tùy chỉnh bằng ::before */
+.fruit-list li:nth-child(odd)::before {
+    /* 2. Thêm nội dung là biểu tượng (có thể là •, ►, ★, ...) */
+    content: "■"; 
+    
+    /* 3. Tùy chỉnh màu sắc của biểu tượng đầu dòng */
+    color: #FF5733; /* Màu cam đỏ (ví dụ: màu của Táo) */
+    
+    /* Vị trí hóa biểu tượng */
+    position: absolute; 
+    left: 0; /* Đặt ở vị trí bên trái khoảng padding */
+    top: -10; 
+
+    /* Tăng kích thước biểu tượng */
+    font-size: 50px; 
+    font-weight: bold;
+}
+/* Tạo và định kiểu biểu tượng đầu dòng tùy chỉnh bằng ::before */
+.fruit-list li:nth-child(even)::before {
+    /* 2. Thêm nội dung là biểu tượng (có thể là •, ►, ★, ...) */
+    content: "◄"; 
+    
+    /* 3. Tùy chỉnh màu sắc của biểu tượng đầu dòng */
+    color: #4bff33; /* Màu cam đỏ (ví dụ: màu của Táo) */
+    
+    /* Vị trí hóa biểu tượng */
+    position: absolute; 
+    left: 0; /* Đặt ở vị trí bên trái khoảng padding */
+    top: -15; 
+    
+    /* Tăng kích thước biểu tượng */
+    font-size: 50px; 
+    font-weight: bold;
+}
+
+/* Tùy chọn: Tùy chỉnh màu biểu tượng cho các mục cụ thể */
+
+
+
+/* Màu đỏ cho Táo */
+.fruit-list li:nth-child(1)::before {
+    color: #a26c5f; 
+}
+
+/* Màu xanh cho Chuối */
+.fruit-list li:nth-child(2)::before {
+    color: #DAF7A6; 
+}
+
+/* Màu cam cho Cam */
+.fruit-list li:nth-child(3)::before {
+    color: #FFC300; 
+}
+
+/* Màu đỏ cho Dâu Tây */
+.fruit-list li:nth-child(4)::before {
+    color: #C70039; 
+}
+/* Màu tím cho Nho */
+.fruit-list li:nth-child(5)::before {
+    color:purple; 
+}
