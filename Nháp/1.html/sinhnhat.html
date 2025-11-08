@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chúc mừng sinh nhật Đào Linh 🌸</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --pink: #ffb6d5;
+      --white: #ffffff;
+      --light-blue: #dff3ff;
+      --accent: #8fbfe6;
+      --card: rgba(255,255,255,0.9);
+      --shadow: 0 8px 24px rgba(133,94,141,0.12);
+      --rounded: 16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Quicksand', 'Baloo 2', system-ui, -apple-system, 'Segoe UI', Roboto; background: linear-gradient(135deg,var(--light-blue),#fff 40%); color:#333}
+
+    .stage{max-width:1000px;margin:32px auto;padding:24px;position:relative;z-index:5}
+
+    header{display:flex;align-items:center;gap:16px}
+    .logo{width:72px;height:72px;border-radius:14px;background:linear-gradient(180deg,var(--pink),var(--accent));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:28px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+
+    h1{font-family:'Baloo 2', 'Quicksand';margin:0;font-size:20px}
+    p.lead{margin:6px 0 18px;color:#444}
+
+    .controls{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+    .btn{
+      background:linear-gradient(180deg,#fff, var(--card));
+      border:2px solid rgba(255,255,255,0.6);
+      padding:10px 14px;border-radius:12px;cursor:pointer;font-weight:600;box-shadow:0 6px 18px rgba(0,0,0,0.06);
+      transition:transform .16s ease, box-shadow .16s ease;
+    }
+    .btn:hover{transform:scale(1.05)}
+    .btn:active{transform:translateY(2px)}
+
+    .board{margin-top:18px;display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start}
+    .card{
+      min-width:220px;max-width:420px;background:var(--card);border-radius:12px;padding:14px;backdrop-filter: blur(6px);box-shadow:var(--shadow);border:1px solid rgba(143,191,230,0.25);
+      transform-origin:left top;opacity:0;transform:translateY(10px) scale(.98);
+      transition:opacity .45s cubic-bezier(.2,.9,.26,1), transform .45s cubic-bezier(.2,.9,.26,1);
+      display:flex;flex-direction:column;gap:8px;align-items:flex-start;
+    }
+    .card.show{opacity:1;transform:translateY(0) scale(1)}
+
+    .card h3{margin:0;font-size:16px;font-weight:700;color:#5b3b5b}
+    .card p{margin:0;color:#333;line-height:1.45;white-space:pre-line}
+
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:700;background:linear-gradient(90deg,var(--pink),var(--accent));color:white;font-size:13px}
+
+    .confetti{pointer-events:none;position:fixed;left:0;top:0;width:100%;height:100%;overflow:hidden;z-index:2}
+    .confetti i{position:absolute;width:10px;height:16px;background:var(--pink);opacity:.9;transform:rotate(15deg);animation:fall 4s linear infinite}
+    @keyframes fall{0%{transform:translateY(-20vh) rotate(0) translateX(0)}100%{transform:translateY(120vh) rotate(360deg) translateX(60px)}}
+
+    @media (max-width:620px){.card{min-width:90%;}}
+  </style>
+</head>
+<body>
+  <div class="confetti" aria-hidden="true"></div>
+  <div class="stage">
+    <header>
+      <div class="logo">DL</div>
+      <div>
+        <h1>Xin chào Đào Linh iu dấu của Huyền :> 💫</h1>
+        <p class="lead">Nhấn nút bên dưới để hé mở lời chúc nhé!</p>
+      </div>
+    </header>
+
+    <div class="controls" role="group" aria-label="Controls">
+      <button id="nextBtn" class="btn"> Ấn vào tớ đi :> ✨</button>
+      <button id="confettiBtn" class="btn">Tắt/Bật confetti 🎉</button>
+      <div style="flex:1"></div>
+      <span class="badge">20 tuổi</span>
+    </div>
+
+    <div id="board" class="board" aria-live="polite"></div>
+  </div>
+
+  <script>
+    const segments = [
+      "Xin chào Đào Linh iu dấu, cậu có biết hôm nay là ngày gì không?",
+      "Ta daaaaa ~ Chúc mừng sinh nhật cô gái 20 tuổi — một bước ngoặt thật đặc biệt! 🎂",
+      "20 tuổi. Không phải là một con số nhỏ nữa — nó là minh chứng cho những lần cậu đã không bỏ cuộc.",
+      "Những ngày mệt mỏi không ai nhìn thấy, những tổn thương phải giấu vào bên trong, những giọt nước mắt rơi trong im lặng.",
+      "Cậu đã trải qua nhiều điều không hề dễ dàng... nhưng vẫn ở đây, vẫn tiếp tục bước đi, vẫn giữ trong mình sự dịu dàng giữa bao va đập của cuộc đời.",
+      "Cậu mạnh mẽ — nhưng điều đó không có nghĩa là cậu phải che giấu sự yếu đuối. Cậu có quyền mệt mỏi. Cậu có quyền cần được quan tâm.",
+      "Cậu xứng đáng được yêu thương, được an ủi và được ôm vào lòng mà không phải cố gắng tỏ ra mình ổn.",
+      "Chúc tuổi 20 của cậu:\n- Bình yên hơn những năm trước\n- Gặp những người thật lòng và tử tế\n- Có đủ can đảm để buông điều không thuộc về mình\n- Đủ mạnh mẽ để bước tiếp, và đủ dịu dàng để yêu chính mình",
+      "Mong rằng từ khoảnh khắc này, cuộc đời sẽ ôm lấy cậu với sự ân cần mà cậu xứng đáng có. Và đừng quên, yêu lấy chính bản thân mình nhé, cô gái 20 tuổi vẫn cần được yêu thương nhiều lắm đấy. 🌸",
+      "Chúc mừng sinh nhật, Linh cute phô mai que. Chúc cậu một tuổi mới mà mỗi điều mong muốn đều có hồi đáp. Cậu luôn xứng đáng với yêu thương. 💖"
+    ];
+
+    const board = document.getElementById('board');
+    const nextBtn = document.getElementById('nextBtn');
+    const confettiWrap = document.querySelector('.confetti');
+    const confettiBtn = document.getElementById('confettiBtn');
+
+    let idx = 0;
+    let confOn = true;
+
+    function makeConfetti(){
+      confettiWrap.innerHTML = '';
+      const colors = ['#ffb6d5','#ffe4f0','#8fbfe6','#ffd6e8','#dff3ff'];
+      for(let i=0;i<26;i++){
+        const el = document.createElement('i');
+        el.style.left = Math.random()*100 + '%';
+        el.style.top = -(Math.random()*20+10) + 'vh';
+        el.style.background = colors[Math.floor(Math.random()*colors.length)];
+        el.style.width = (6+Math.random()*12)+'px';
+        el.style.height = (10+Math.random()*18)+'px';
+        el.style.opacity = 0.85*Math.random()+0.35;
+        el.style.animationDelay = (Math.random()*2)+'s';
+        el.style.transform = `rotate(${(Math.random()*60-30)}deg)`;
+        confettiWrap.appendChild(el);
+      }
+    }
+    makeConfetti();
+
+    confettiBtn.addEventListener('click', ()=>{
+      confOn = !confOn;
+      confettiWrap.style.display = confOn ? 'block' : 'none';
+    });
+
+    function revealNext(){
+      if(idx >= segments.length) return;
+      const text = segments[idx];
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `<p>${text}</p>`;
+
+      board.appendChild(card);
+      requestAnimationFrame(()=>{
+        setTimeout(()=>card.classList.add('show'),40);
+      });
+
+      card.scrollIntoView({behavior:'smooth',block:'nearest'});
+
+      idx++;
+      if(idx >= segments.length){
+        nextBtn.textContent = 'Đã xong 🎉';
+        nextBtn.disabled = true;
+      }
+    }
+
+    nextBtn.addEventListener('click', revealNext);
+  </script>
+</body>
+</html>
