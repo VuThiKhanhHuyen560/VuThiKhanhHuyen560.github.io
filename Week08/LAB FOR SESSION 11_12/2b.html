@@ -1,15 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
     <title>Circle Calculator</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding-top: 50px; }
-        .result { margin-top: 20px; padding: 10px; border: 1px solid #ccc; display: inline-block; }
-    </style>
-    <script language="javascript">
-…<body>
-    <h1>Circle Calculation Results</h1>
-    <p>Refresh the page to enter a new radius.</p>
+    <meta charset="utf-8">
+</head>
+<body>
+
+    <h2>Circle Perimeter and Area Calculator</h2>
+
+    <script>
+        // Define the value of Pi
+        const PI = 3.14; 
+
+        // Prompt for the radius
+        var radiusInput = prompt("Enter the radius of the circle:");
+
+        // Convert input to a number
+        var radius = parseFloat(radiusInput);
+
+        // Check if input is a valid positive number
+        if (isNaN(radius) || radius <= 0) {
+            document.write("<p style='color: red;'><b>Invalid input!</b> Please enter a positive number for the radius.</p>");
+        } else {
+            // Calculate Perimeter (Circumference): C = 2 * PI * r
+            var circumference = 2 * PI * radius;
+
+            // Calculate Area: A = PI * r^2
+            var area = PI * Math.pow(radius, 2); // Math.pow(r, 2) is r * r
+
+            // Display the results
+            document.write("<h3>Results (using $\\pi = " + PI + "$):</h3>");
+            document.write("<p>Radius entered: <b>" + radius + "</b></p>");
+            document.write("<p style='color: green;'><b>Circumference (Perimeter):</b> " + circumference.toFixed(2) + "</p>");
+            document.write("<p style='color: blue;'><b>Area:</b> " + area.toFixed(2) + "</p>");
+        }
+    </script>
+
 </body>
 </html>

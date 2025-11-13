@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
     <title>Rectangle Calculator</title>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; padding-top: 50px; background-color: #f4f4f9; }
-        .result { 
-            margin: 20px auto; 
-            padding: 20px; 
-…    <h1>Rectangle Calculation Results</h1>
-    <p>Refresh the page to enter new dimensions.</p>
+    <meta charset="utf-8">
+</head>
+<body>
+
+    <h2>Rectangle Perimeter and Area Calculator</h2>
+
+    <script>
+        // Prompt for length and width
+        var length = prompt("Enter the length of the rectangle:");
+        var width = prompt("Enter the width of the rectangle:");
+
+        // Convert inputs to numbers
+        var len = parseFloat(length);
+        var wid = parseFloat(width);
+
+        // Check if inputs are valid numbers
+        if (isNaN(len) || isNaN(wid) || len <= 0 || wid <= 0) {
+            document.write("<p style='color: red;'><b>Invalid input!</b> Please enter positive numbers for both length and width.</p>");
+        } else {
+            // Calculate Perimeter: P = 2 * (l + w)
+            var perimeter = 2 * (len + wid);
+
+            // Calculate Area: A = l * w
+            var area = len * wid;
+
+            // Display the results
+            document.write("<h3>Results:</h3>");
+            document.write("<p>Length entered: <b>" + len + "</b></p>");
+            document.write("<p>Width entered: <b>" + wid + "</b></p>");
+            document.write("<p style='color: green;'><b>Perimeter:</b> " + perimeter.toFixed(2) + "</p>");
+            document.write("<p style='color: blue;'><b>Area:</b> " + area.toFixed(2) + "</p>");
+        }
+    </script>
+
 </body>
 </html>
