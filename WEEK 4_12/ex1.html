@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HELLO</title>
+    <style>
+        /*
+         * CSS cho Thanh Điều Hướng (Navigator)
+         */
+
+        /* Thiết lập cơ bản cho body */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 50px 0; /* Thêm khoảng cách trên/dưới để dễ nhìn */
+            background-color: #f8f8f8;
+            text-align: center; /* Cần thiết để căn giữa trên một số trình duyệt, nhưng margin: auto là chính */
+        }
+
+        /* Container chính của thanh điều hướng */
+        .navbar {
+            list-style-type: none; /* Bỏ dấu chấm mặc định */
+            margin: 0 auto; /* KHÁI NIỆM CĂN GIỮA: Đặt margin trái/phải tự động */
+            padding: 0;
+            overflow: hidden;
+
+            /* Yêu cầu: Màu nền HỒNG ĐẬM HƠN */
+            background-color: #FF69B4; /* Hot Pink - Một màu hồng đậm và đẹp */
+
+            /* Yêu cầu: CĂN GIỮA THANH NAVIGATOR */
+            width: fit-content; /* Đảm bảo thanh chỉ rộng bằng nội dung bên trong */
+            
+            border-radius: 10px; /* Bo góc đẹp hơn */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Bóng đổ nổi bật */
+            display: table; /* Đảm bảo căn giữa hoạt động tốt trên mọi trình duyệt */
+        }
+
+        /* Các mục (item) trong thanh điều hướng */
+        .navbar li {
+            float: left; /* Đặt các mục nằm ngang */
+            position: relative; /* Dùng cho hiệu ứng chuyển tiếp */
+        }
+
+        /* Liên kết (link) trong mỗi mục */
+        .navbar li a {
+            display: block;
+            
+            /* Yêu cầu: Màu chữ VÀNG */
+            color: #FFFF00; /* Màu vàng tươi */
+            
+            text-align: center;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-weight: 600; /* Hơi đậm */
+            text-transform: uppercase;
+            transition: color 0.3s, background-color 0.3s; /* Hiệu ứng chuyển đổi mượt mà */
+        }
+
+        /* Hiệu ứng khi di chuột (hover) và khi được nhấn/active */
+        .navbar li a:hover,
+        .navbar li a:focus,
+        .navbar li a:active {
+            background-color: #FFC0CB; /* Đổi sang màu hồng nhạt hơn khi di chuột để có sự tương phản */
+            
+            /* Yêu cầu: Màu chữ XANH DƯƠNG khi hover/nhấn */
+            color: #0000FF; /* Màu xanh dương */
+        }
+
+        /* Định dạng đặc biệt cho "BÉ Ở BÊN TRÊN" */
+        .navbar li a .superscript {
+            font-size: 0.7em; /* Giảm kích thước chữ */
+            vertical-align: super; /* Đẩy chữ lên trên */
+            margin-left: 3px;
+            font-weight: normal;
+        }
+
+    </style>
+</head>
+<body>
+
+    <ul class="navbar">
+        <li><a href="#trangchu">🏠 Trang Chủ</a></li>
+        <li><a href="#sach">📚 Sách</a></li>
+        <li><a href="#tacgia">✍️ Tác Giả <span class="superscript">(TM)</span></a></li>
+        <li><a href="#lienhe">📞 Liên Hệ</a></li>
+    </ul>
+
+</body>
+</html>

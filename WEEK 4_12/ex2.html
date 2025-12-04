@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Điều Hướng Toggle</title>
+    <style>
+        /*
+         * CSS cho Thanh Điều Hướng (Navigator)
+         */
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px 0; /* Giảm padding tổng thể */
+            background-color: #f8f8f8;
+            text-align: center;
+        }
+        
+        /* ---------------------------------- */
+        /* CSS CHO NÚT TOGGLE */
+        /* ---------------------------------- */
+        .toggle-btn-container {
+            margin: 0 auto 10px auto; /* Căn giữa nút và tạo khoảng cách với menu */
+            width: fit-content;
+        }
+
+        .toggle-btn {
+            background-color: #FFC0CB; /* Màu hồng nhạt */
+            color: #FF69B4; /* Chữ màu hồng đậm */
+            padding: 8px 15px;
+            border: 2px solid #FF69B4;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            display: inline-block; /* Đảm bảo nó là hình chữ nhật bé */
+        }
+
+        .toggle-btn:hover {
+            background-color: #FF69B4; /* Đổi màu nền khi hover */
+            color: white; /* Đổi màu chữ khi hover */
+        }
+
+
+        /* ---------------------------------- */
+        /* CSS CHO THANH NAVIGATOR */
+        /* ---------------------------------- */
+        .navbar-container {
+            /* Container bao bọc navbar để dễ dàng căn giữa và áp dụng hiệu ứng ẩn/hiện */
+            width: 100%;
+            text-align: center;
+        }
+        
+        .navbar {
+            list-style-type: none;
+            margin: 0 auto;
+            padding: 0;
+            overflow: hidden;
+            background-color: #FF69B4; /* Màu nền HỒNG ĐẬM */
+            width: fit-content; 
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            display: table;
+            
+            /* Thêm transition để chuyển đổi mượt mà */
+            transition: opacity 0.4s, transform 0.4s;
+        }
+
+        /* Class để ẨN menu */
+        .navbar.hidden {
+            opacity: 0; /* Làm menu trong suốt */
+            transform: translateY(-20px); /* Kéo menu lên trên một chút khi ẩn */
+            height: 0; /* Đảm bảo các mục con không chiếm không gian */
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            padding: 0 !important;
+        }
+
+        /* Đảm bảo các item không bị ẩn */
+        .navbar:not(.hidden) li {
+             display: list-item; /* Hiện các mục con khi menu hiện */
+        }
+        .navbar.hidden li {
+             display: none; /* Ẩn các mục con khi menu ẩn */
+        }
+
+
+        /* Các mục (item) trong thanh điều hướng */
+        .navbar li {
+            float: left;
+            position: relative;
+        }
+
+        /* Liên kết (link) trong mỗi mục */
+        .navbar li a {
+            display: block;
+            color: #FFFF00; /* Màu chữ VÀNG */
+            text-align: center;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: color 0.3s, background-color 0.3s;
+        }
+
+        /* Hiệu ứng khi di chuột (hover) và khi được nhấn/active */
+        .navbar li a:hover,
+        .navbar li a:focus,
+        .navbar li a:active {
+            background-color: #FFC0CB;
+            color: #0000FF; /* Màu chữ XANH DƯƠNG */
+        }
+
+        /* Định dạng đặc biệt cho "BÉ Ở BÊN TRÊN" */
+        .navbar li a .superscript {
+            font-size: 0.7em;
+            vertical-align: super;
+            margin-left: 3px;
+            font-weight: normal;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="toggle-btn-container">
+        <div id="toggleButton" class="toggle-btn">
+            ☰ Toggle Menu
+        </div>
+    </div>
+
+    <div class="navbar-container">
+        <ul id="mainNavbar" class="navbar">
+            <li><a href="#trangchu">Trang Chủ</a></li>
+            <li><a href="#sach">Sách</a></li>
+            <li><a href="#tacgia">Tác Giả <span class="superscript">(TM)</span></a></li>
+            <li><a href="#lienhe">Liên Hệ</a></li>
+        </ul>
+    </div>
+
+    <script>
+        // Lấy các phần tử cần thiết
+        const toggleButton = document.getElementById('toggleButton');
+        const mainNavbar = document.getElementById('mainNavbar');
+
+        // Thêm trình xử lý sự kiện (event listener) khi nhấn nút
+        toggleButton.addEventListener('click', function() {
+            // Sử dụng .classList.toggle('hidden') để thêm class 'hidden' nếu chưa có, 
+            // và xóa class 'hidden' nếu đã có.
+            mainNavbar.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar & Interactive Table</title>
+    <style>
+        /* Global & Body Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px 0;
+            background-color: #f8f8f8; /* Default background color */
+            text-align: center;
+            transition: background-color 0.5s; /* Smooth background color transition */
+        }
+        
+        /* ---------------------------------- */
+        /* NAVIGATION BAR & TOGGLE STYLES (FROM PREVIOUS CODE) */
+        /* ---------------------------------- */
+        .toggle-btn-container {
+            margin: 0 auto 10px auto;
+            width: fit-content;
+        }
+
+        .toggle-btn {
+            background-color: #FFC0CB; 
+            color: #FF69B4; 
+            padding: 8px 15px;
+            border: 2px solid #FF69B4;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+
+        .toggle-btn:hover {
+            background-color: #FF69B4; 
+            color: white; 
+        }
+
+        .navbar-container {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .navbar {
+            list-style-type: none;
+            margin: 0 auto;
+            padding: 0;
+            overflow: hidden;
+            background-color: #FF69B4; 
+            width: fit-content; 
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            display: table;
+            transition: opacity 0.4s, transform 0.4s;
+        }
+
+        .navbar.hidden {
+            opacity: 0;
+            transform: translateY(-20px);
+            height: 0;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            padding: 0 !important;
+        }
+
+        .navbar:not(.hidden) li {
+             display: list-item;
+        }
+        .navbar.hidden li {
+             display: none;
+        }
+
+        .navbar li {
+            float: left;
+            position: relative;
+        }
+
+        .navbar li a {
+            display: block;
+            color: #FFFF00;
+            text-align: center;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: color 0.3s, background-color 0.3s;
+        }
+
+        .navbar li a:hover,
+        .navbar li a:focus,
+        .navbar li a:active {
+            background-color: #FFC0CB;
+            color: #0000FF;
+        }
+
+        .navbar li a .superscript {
+            font-size: 0.7em;
+            vertical-align: super;
+            margin-left: 3px;
+            font-weight: normal;
+        }
+
+        /* ---------------------------------- */
+        /* TABLE STYLES & INTERACTIVITY */
+        /* ---------------------------------- */
+        #componentTable {
+            width: 70%;
+            max-width: 800px;
+            border-collapse: collapse;
+            margin: 40px auto 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #componentTable, #componentTable th, #componentTable td {
+            border: 1px solid #ddd;
+        }
+
+        #componentTable th {
+            background-color: #FF69B4; /* Dark Pink Header */
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        #componentTable td {
+            padding: 10px;
+            text-align: left;
+            transition: background-color 0.3s;
+        }
+
+        /* Effect for "touching" (hovering) the row */
+        #componentTable tbody tr:hover {
+            background-color: #FFC0CB; /* Light Pink on touch/hover */
+            cursor: pointer;
+        }
+        
+        /* Text Color Change Class */
+        .text-blue {
+            color: #0000FF !important; /* Blue text when button is clicked */
+        }
+
+        /* Button Styles */
+        .table-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .table-buttons button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, opacity 0.3s;
+            background-color: #FFC0CB; /* Light Pink */
+            color: #FF69B4; /* Dark Pink Text */
+        }
+        
+        .table-buttons button:hover {
+            opacity: 0.8;
+            background-color: #FF69B4;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="toggle-btn-container">
+        <div id="toggleButton" class="toggle-btn">
+            ☰ Toggle Menu
+        </div>
+    </div>
+
+    <div class="navbar-container">
+        <ul id="mainNavbar" class="navbar">
+            <li><a href="#home">🏠 Home</a></li>
+            <li><a href="#books">📚 Books</a></li>
+            <li><a href="#author">✍️ Author <span class="superscript">(TM)</span></a></li>
+            <li><a href="#contact">📞 Contact</a></li>
+        </ul>
+    </div>
+
+    <table id="componentTable">
+        <thead>
+            <tr>
+                <th>Component Name</th>
+                <th>Price (VND)</th>
+                <th>Rating ⭐</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CPU Intel™ Core i5</td>
+                <td data-price="5000000">5,000,000</td>
+                <td data-ranking="4.5">4.5/5</td>
+            </tr>
+            <tr>
+                <td>RAM DDR4 8GB</td>
+                <td data-price="800000">800,000</td>
+                <td data-ranking="4.0">4.0/5</td>
+            </tr>
+            <tr>
+                <td>SSD 256GB</td>
+                <td data-price="1200000">1,200,000</td>
+                <td data-ranking="4.8">4.8/5</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="table-buttons">
+        <button id="changeBackgroundBtn">Change Background Color</button>
+        <button id="changeTextColourBtn">Change Text Color</button>
+        <button id="sortButton">Sort by Component Name/Ranking (Toggle)</button>
+    </div>
+
+    <script>
+        // --- NAVIGATION BAR TOGGLE ---
+        const toggleButton = document.getElementById('toggleButton');
+        const mainNavbar = document.getElementById('mainNavbar');
+
+        toggleButton.addEventListener('click', function() {
+            mainNavbar.classList.toggle('hidden');
+        });
+
+        // --- TABLE INTERACTIVITY ---
+        const body = document.body;
+        const table = document.getElementById('componentTable');
+        const tbody = table.querySelector('tbody');
+        const changeBackgroundBtn = document.getElementById('changeBackgroundBtn');
+        const changeTextColourBtn = document.getElementById('changeTextColourBtn');
+        const sortButton = document.getElementById('sortButton');
+        let isSortedByName = true; // State for sorting
+        let isTextBlue = false; // State for text color
+
+        // 1. Change Body Background Color
+        changeBackgroundBtn.addEventListener('click', function() {
+            // Toggle between two colors for the whole page (e.g., light gray and light yellow)
+            if (body.style.backgroundColor === 'rgb(248, 248, 248)') {
+                body.style.backgroundColor = '#FFFACD'; // Light Yellow
+            } else {
+                body.style.backgroundColor = '#f8f8f8'; // Default Light Gray
+            }
+        });
+
+        // 2. Change Table Text Color
+        changeTextColourBtn.addEventListener('click', function() {
+            // Select all cells in the table body
+            const cells = table.querySelectorAll('tbody td, tbody tr');
+            
+            // Toggle the text color state
+            if (!isTextBlue) {
+                cells.forEach(cell => cell.classList.add('text-blue'));
+                isTextBlue = true;
+            } else {
+                cells.forEach(cell => cell.classList.remove('text-blue'));
+                isTextBlue = false;
+            }
+        });
+
+        // 3. Sort Table (Component Name / Ranking)
+        sortButton.addEventListener('click', function() {
+            isSortedByName = !isSortedByName; // Toggle sort state
+
+            // Determine the column index and type based on the state
+            const columnIndex = isSortedByName ? 0 : 2; // 0 for Name, 2 for Ranking
+            const sortType = isSortedByName ? 'name' : 'ranking';
+
+            // Get all rows from the table body
+            let rows = Array.from(tbody.querySelectorAll('tr'));
+
+            rows.sort((rowA, rowB) => {
+                const cellA = rowA.cells[columnIndex].textContent.trim();
+                const cellB = rowB.cells[columnIndex].textContent.trim();
+
+                if (sortType === 'name') {
+                    // Sort alphabetically (Component Name)
+                    return cellA.localeCompare(cellB); 
+                } else if (sortType === 'ranking') {
+                    // Sort by ranking (highest to lowest)
+                    const rankingA = parseFloat(rowA.cells[columnIndex].dataset.ranking);
+                    const rankingB = parseFloat(rowB.cells[columnIndex].dataset.ranking);
+                    return rankingB - rankingA; // Descending order (High to Low)
+                }
+            });
+
+            // Re-append the sorted rows to the table body
+            rows.forEach(row => tbody.appendChild(row));
+
+            // Update button text to reflect the next sort action
+            sortButton.textContent = isSortedByName 
+                ? 'Sort by Ranking (High to Low)' 
+                : 'Sort by Component Name (A-Z)';
+        });
+        
+        // Initial button text setup
+        sortButton.textContent = 'Sort by Ranking (High to Low)'; // Default sort when first clicked
+    </script>
+
+</body>
+</html>
