@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Login</title>
+    <style>
+        /* General Styles and Background */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        /* Login Container Styling */
+        .login-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* Logo/Brand Area */
+        .logo {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #007bff;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        /* Input Fields Styling */
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+            font-size: 16px;
+        }
+
+        .input-group input:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        }
+
+        /* Login Button Styling */
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 700;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-top: 10px;
+        }
+
+        .login-btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Links Styling */
+        .links-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .link-item {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .link-item:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        /* Separator for "Create new account" */
+        .signup-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 15px;
+            color: #666;
+        }
+
+        /* Animation for fade in effect */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">
+            Log in
+        </div>
+        <h2>Sign In to Your Account</h2>
+
+        <form action="#" method="POST">
+            <div class="input-group">
+                <label for="username">Email or Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your email or username" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <div class="links-group">
+                <a href="#" class="link-item">
+                    Forgot password?
+                </a>
+            </div>
+
+            <button type="submit" class="login-btn">
+                Log In
+            </button>
+        </form>
+
+        <div class="signup-section">
+            <p>Don't have an account? 
+                <a href="#" class="link-item">
+                    Create new account
+                </a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

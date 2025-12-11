@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Dashboard Layout</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Setup */
+        :root {
+            --primary-color: #007bff; /* Blue for primary actions/charts */
+            --secondary-color: #28a745; /* Green for success/revenue */
+            --warning-color: #ffc107; /* Yellow for attention */
+            --background-color: #f4f6f9; /* Light gray background */
+            --card-color: #ffffff;
+            --text-dark: #343a40;
+            --sidebar-width: 250px;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+            color: var(--text-dark);
+        }
+
+        /* 1. Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--text-dark); /* Dark background */
+            color: white;
+            padding: 20px 0;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0; /* Prevents sidebar from shrinking */
+        }
+
+        .sidebar-logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            padding: 12px 25px;
+            text-decoration: none;
+            color: #ccc;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .sidebar-nav a:hover, .sidebar-nav .active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .sidebar-nav span {
+            margin-left: 10px;
+            font-weight: 500;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 2. Top Bar */
+        .topbar {
+            background-color: var(--card-color);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            height: 60px;
+        }
+
+        .topbar-title {
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+
+        .topbar-user {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-avatar {
+            width: 35px;
+            height: 35px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            margin-left: 15px;
+        }
+
+        /* Dashboard Grid Layout */
+        .dashboard-body {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        /* 3. Statistic Cards */
+        .card {
+            background-color: var(--card-color);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-icon {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+
+        /* Layout for Charts and Tables */
+        .chart-full-row {
+            grid-column: span 3; /* Takes up 3 columns */
+        }
+
+        .data-table-row {
+            grid-column: span 4; /* Takes up all 4 columns */
+        }
+
+        /* Chart Styling (CSS only for demonstration) */
+        .chart-container {
+            height: 300px;
+            position: relative;
+        }
+
+        .chart-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* 4. Bar Chart Simulation */
+        .bar-chart {
+            display: flex;
+            height: 200px;
+            align-items: flex-end;
+            border-bottom: 1px solid #ddd;
+            gap: 10px;
+            padding-bottom: 5px;
+        }
+
+        .bar {
+            width: 30px;
+            background-color: var(--primary-color);
+            border-radius: 5px 5px 0 0;
+            transition: height 0.5s;
+            position: relative;
+            flex-grow: 1;
+        }
+
+        .bar[data-height="80"] { height: 80%; background-color: var(--secondary-color); }
+        .bar[data-height="65"] { height: 65%; }
+        .bar[data-height="90"] { height: 90%; background-color: var(--secondary-color); }
+        .bar[data-height="50"] { height: 50%; }
+        .bar[data-height="75"] { height: 75%; }
+        .bar[data-height="60"] { height: 60%; }
+        .bar[data-height="85"] { height: 85%; background-color: var(--secondary-color); }
+
+        /* 5. Data Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            margin-top: 15px;
+        }
+
+        .data-table th, .data-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .data-table th {
+            background-color: var(--background-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8em;
+            color: #6c757d;
+        }
+
+        .data-table tr:hover {
+            background-color: #fafafa;
+        }
+        
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+        .status-success { background-color: #d4edda; color: #155724; }
+        .status-warning { background-color: #fff3cd; color: #856404; }
+    </style>
+</head>
+<body>
+    
+    <div class="sidebar">
+        <div class="sidebar-logo">Analytics Pro</div>
+        <div class="sidebar-nav">
+            <a href="#" class="active">📊 <span>Dashboard</span></a>
+            <a href="#">📈 <span>Reports</span></a>
+            <a href="#">👤 <span>Users</span></a>
+            <a href="#">⚙️ <span>Settings</span></a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="topbar">
+            <div class="topbar-title">Website Overview</div>
+            <div class="topbar-user">
+                <span>Welcome, Admin</span>
+                <div class="user-avatar"></div>
+            </div>
+        </div>
+
+        <div class="dashboard-body">
+            
+            <div class="card">
+                <div class="stat-icon" style="color: var(--secondary-color);">💰</div>
+                <div class="stat-value">$12,450</div>
+                <div class="stat-label">Total Revenue (30 Days)</div>
+            </div>
+
+            <div class="card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-value">850</div>
+                <div class="stat-label">New Users (Today)</div>
+            </div>
+
+            <div class="card">
+                <div class="stat-icon" style="color: var(--warning-color);">🚦</div>
+                <div class="stat-value">45,800</div>
+                <div class="stat-label">Website Traffic (Total Views)</div>
+            </div>
+            
+            <div class="card">
+                <div class="stat-icon" style="color: #6f42c1;">⏳</div>
+                <div class="stat-value">02:35</div>
+                <div class="stat-label">Avg. Session Duration</div>
+            </div>
+
+            <div class="card chart-full-row">
+                <div class="chart-title">Weekly Revenue Trend ($)</div>
+                <div class="chart-container">
+                    <div class="bar-chart">
+                        <div class="bar" data-height="80"></div>
+                        <div class="bar" data-height="65"></div>
+                        <div class="bar" data-height="90"></div>
+                        <div class="bar" data-height="50"></div>
+                        <div class="bar" data-height="75"></div>
+                        <div class="bar" data-height="60"></div>
+                        <div class="bar" data-height="85"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="chart-title">Source Breakdown</div>
+                <div style="width: 100px; height: 100px; border-radius: 50%; background: conic-gradient(#007bff 60%, #ffc107 20%, #28a745 10%); margin: 20px auto;"></div>
+                <p style="text-align: center; font-size: 0.9em; color: #6c757d;">60% Organic | 20% Paid | 10% Social</p>
+            </div>
+
+            <div class="card data-table-row">
+                <div class="chart-title">Recent Customer Orders</div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#001021</td>
+                            <td>Jane Smith</td>
+                            <td>$150.00</td>
+                            <td><span class="status-badge status-success">Completed</span></td>
+                            <td>2025-12-10</td>
+                        </tr>
+                        <tr>
+                            <td>#001020</td>
+                            <td>Mark Lee</td>
+                            <td>$85.50</td>
+                            <td><span class="status-badge status-warning">Pending</span></td>
+                            <td>2025-12-09</td>
+                        </tr>
+                        <tr>
+                            <td>#001019</td>
+                            <td>Anna King</td>
+                            <td>$320.99</td>
+                            <td><span class="status-badge status-success">Completed</span></td>
+                            <td>2025-12-09</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

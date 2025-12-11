@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health App Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* 3. Background Color & Typography */
+        :root {
+            --primary-color: #00C853;     /* Vibrant Green */
+            --secondary-color: #00796B;   /* Deep Teal */
+            --background-color: #F5F5F5;  /* Soft White */
+            --text-primary: #212121;      /* Dark Text */
+            --text-secondary: #757575;    /* Gray Text */
+            --success: #4CAF50;
+            --warning: #FFC107;
+            --error: #D32F2F;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .dashboard {
+            width: 100%;
+            max-width: 450px;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            color: var(--text-primary);
+            font-size: 1.8em;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .profile-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* 1. Primary Color Usage (Main Action/Metric) */
+        .main-metric-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 200, 83, 0.4);
+        }
+
+        .main-metric-card h2 {
+            font-size: 1em;
+            font-weight: 500;
+            margin-top: 0;
+            opacity: 0.8;
+        }
+
+        .main-metric-card .value {
+            font-size: 3em;
+            font-weight: 700;
+            margin: 5px 0 10px;
+        }
+
+        /* Secondary Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .metric-card {
+            background-color: var(--background-color);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .metric-card .label {
+            color: var(--text-secondary);
+            font-size: 0.85em;
+            margin-bottom: 5px;
+        }
+
+        .metric-card .value {
+            color: var(--text-primary);
+            font-size: 1.4em;
+            font-weight: 700;
+        }
+
+        /* 4. Status Colors (Success/Warning/Error) */
+        .status-section {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            font-weight: 500;
+            color: white;
+        }
+
+        .status-success {
+            background-color: var(--success);
+        }
+
+        .status-warning {
+            background-color: var(--warning);
+        }
+
+        .status-error {
+            background-color: var(--error);
+        }
+
+        /* 2. Secondary Color Usage (Button/Accent) */
+        .primary-action-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .primary-action-btn:hover {
+            background-color: #004d40; /* Darker teal on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <h1>Health Dashboard</h1>
+            <div class="profile-icon"></div>
+        </div>
+
+        <div class="main-metric-card">
+            <h2>Today's Steps Goal</h2>
+            <div class="value">9,850 <span style="font-size: 0.5em; font-weight: 500;">/ 10,000</span></div>
+            <p style="margin: 0; font-size: 0.9em; opacity: 0.9;">Almost there! Just 150 steps left.</p>
+        </div>
+
+        <div class="status-section status-warning">
+            ⚠️ Attention: Sleep quality was low (4h 30m). Try to rest earlier tonight.
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="label">Heart Rate</div>
+                <div class="value">72 <span style="font-size: 0.7em;">bpm</span></div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Calories Burned</div>
+                <div class="value">540 <span style="font-size: 0.7em;">kcal</span></div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Water Intake</div>
+                <div class="value">6/8 <span style="font-size: 0.7em;">glasses</span></div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Weight</div>
+                <div class="value">75.2 <span style="font-size: 0.7em;">kg</span></div>
+            </div>
+        </div>
+        
+        <button class="primary-action-btn">
+            Track New Activity
+        </button>
+    </div>
+</body>
+</html>

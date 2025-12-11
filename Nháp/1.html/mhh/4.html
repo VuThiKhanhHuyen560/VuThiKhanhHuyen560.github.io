@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Signup Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global & Background Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #eef2f6; /* Soft, professional background */
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Form Container (Focus on Proper Spacing) */
+        .signup-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .signup-container h2 {
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        /* Input Group (Focus on Clear Labels & Spacing) */
+        .input-group {
+            margin-bottom: 25px; /* Proper Spacing between fields */
+            text-align: left;
+            position: relative;
+        }
+
+        /* 1. Clear Labels */
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+            font-size: 0.95em;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            font-size: 16px;
+        }
+
+        .input-group input:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+        }
+
+        /* Styling for Error State */
+        .input-group.error input {
+            border-color: #dc3545; /* Red border for error */
+        }
+
+        /* 2. Friendly Error Messages */
+        .error-message {
+            color: #dc3545;
+            font-size: 0.85em;
+            margin-top: 5px;
+            display: none; /* Hidden by default in UX design */
+            font-weight: 500;
+            /* Added spacing to separate message from next field */
+        }
+
+        /* Styles for password requirements */
+        .password-requirements {
+            font-size: 0.8em;
+            color: #777;
+            margin-top: -15px; /* Pull up to be closer to password field */
+            margin-bottom: 20px;
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .password-requirements li {
+            margin-top: 4px;
+        }
+
+        /* 4. A visible "Create account" button */
+        .signup-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #28a745; /* Primary action color (Green) */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-top: 15px; /* Spacing above button */
+        }
+
+        .signup-btn:hover {
+            background-color: #1e7e34;
+            transform: translateY(-1px);
+        }
+
+        /* Example of T&C link */
+        .terms-text {
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 20px;
+        }
+
+        .terms-text a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Create Your Account</h2>
+        <form action="#" method="POST">
+
+            <div class="input-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="John Doe" required>
+            </div>
+
+            <div class="input-group error">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                <div class="error-message" style="display: block;">
+                    This email is already registered. Please use a different one or login.
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Choose Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <ul class="password-requirements">
+                <li>Must be at least 8 characters long.</li>
+                <li>Must contain a number or symbol.</li>
+            </ul>
+
+
+            <div class="input-group error">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+                <div class="error-message" style="display: block;">
+                    Passwords do not match. Please check your typing.
+                </div>
+            </div>
+
+            <button type="submit" class="signup-btn">
+                Create account
+            </button>
+
+            <p class="terms-text">
+                By creating an account, you agree to our 
+                <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.
+            </p>
+        </form>
+    </div>
+</body>
+</html>
